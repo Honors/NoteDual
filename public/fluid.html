@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Bootstrap, from Twitter</title>
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<!-- Le styles -->
+		<link href="bootstrap.css" rel="stylesheet">
+		<style type="text/css">
+			body {
+				padding-top: 60px;
+			}
+		</style>
+
+		<!-- Le fav and touch icons -->
+		<link rel="shortcut icon" href="images/favicon.ico">
+		<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+		
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+		<script type="text/javascript" src="twipsy.js"></script>
+		
+		<script type="text/javascript" src="modal_twitter.js"></script>
+		<script type="text/javascript" src="popover_twitter.js"></script>		
+		<script type="text/javascript" src="script.js"></script>
+	</head>
+
+	<body>
+		<!-- Templates -->
+		<script type="plain/html" id="large_item">
+			<div class="span6">
+				<h2>{{heading}}</h2>
+				<p>Etiam porta sem malesuada magna mollis euismod. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+				<p><a class="btn" href="#" data-controls-modal="modal-from-dom" data-backdrop="static">{{details}} &raquo;</a></p>
+			</div>  
+		</script>
+		<script type="plain/html" id="small_item">
+			<div class="span5">
+				<h2>{{heading}}</h2>
+				 <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+				<p><a class="btn" id="{{details}}" href="#">{{details}} &raquo;</a></p>
+			</div>
+		</script>
+		<script type="plain/html" id="bread_crumb">
+			<ul class="breadcrumb">
+			  <li><a href="#">Home</a> <span class="divider">/</span></li>
+			  <li><a href="#">Middle page</a> <span class="divider">/</span></li>
+			  <li><a href="#">Another one</a> <span class="divider">/</span></li>
+			  <li class="active">You are here</li>
+			</ul>
+		</script>
+		<div class="topbar">
+			<div class="topbar-inner">
+				<div class="container-fluid">
+					<a class="brand" href="#">guidEd.</a>
+					<ul class="nav">
+						<li class="active"><a href="#">Home</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+					<p class="pull-right">Logged in as <a href="#">username</a></p>
+				</div>
+			</div>
+		</div>		
+	
+		<div id="modal-from-dom" class="modal hide fade in" style="display: none; ">
+			<div class="modal-header">
+				<a href="#" class="close">×</a>
+				<h3>Modal Heading</h3>
+			</div>
+			<div class="modal-body">
+				<p>One fine body…</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn primary">Primary</a>
+				<a href="#" class="btn secondary">Secondary</a>
+			</div>
+		</div>
+		
+		<div class="container-fluid">												
+			<div class="sidebar">				
+				<div class="well">
+					<script>
+						for( var k in sidebar ) {
+							var list = sidebar[k];
+							document.write("<h5>"+k+"</h5><ul>");							
+							for( var k in list ) {
+								document.write("<li><a href="+list[k]+">"+k+"</a></li>");	
+							}
+							document.write("</ul>");
+						}
+					</script>					
+				</div>
+			</div>
+			<div class="content">			
+				<!-- Main hero unit for a primary marketing message or call to action -->
+				<div class="hero-unit">
+					<h1>Hello, world!</h1>
+					<p>Vestibulum id ligula porta felis euismod semper. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+					<p><a class="btn primary large" rel="popover" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A title" id="modal-popover">Learn more &raquo;</a></p>
+				</div>
+				<!-- Example row of columns -->
+				<div class="row">					
+					<script>						
+						for(var i = 0; i < 2; i++) {
+							document.write(templ(document.getElementById('large_item').innerHTML, features[i]));
+						}
+					</script>
+				</div>
+				<hr>
+				<!-- Example row of columns -->
+				<div class="row">					
+					<script>
+						for( i = i; i < 5; i++ ) {
+							document.write(templ(document.getElementById('small_item').innerHTML, features[i]));
+						}
+					</script>										
+				</div>
+				<footer>
+					<p>&copy; Company 2012</p>
+				</footer>				
+			</div>			
+		</div>
+		<script>
+			$('#first').modal({
+			  keyboard: true
+			});
+			$('a[rel=popover]').popover();
+		</script>
+	</body>
+</html>

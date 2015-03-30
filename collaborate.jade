@@ -1,0 +1,240 @@
+doctype html
+html
+  head
+    meta( charset="utf-8" )
+    title #{notepad}
+    meta( name="description", content="" )
+    meta( name="author", content="" )
+    <!-- Le styles -->
+    link(href="/bootstrap.css", rel="stylesheet")
+    style.
+      body {
+        padding-top: 60px;
+      }
+      a.label:hover {
+      color: white;
+      text-decoration: none;
+      }
+      /* Override some defaults */
+      html, body {
+      background-color: #eee;
+      }
+      body {
+      padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */
+      }
+      .container > footer p {
+      text-align: center; /* center align it with the container */
+      }
+      .container {
+      width: 820px; /* downsize our container to make the content feel a bit tighter and more cohesive. NOTE: this removes two full columns from the grid, meaning you only go to 14 columns and not 16. */
+      }
+      
+      /* The white background content wrapper */
+      .container > .content {
+      background-color: #fff;
+      padding: 20px;
+      margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+      -webkit-border-radius: 0 0 6px 6px;
+      -moz-border-radius: 0 0 6px 6px;
+      border-radius: 0 0 6px 6px;
+      -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+      -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+      box-shadow: 0 1px 2px rgba(0,0,0,.15);
+      }
+      
+      /* Page header tweaks */
+      .page-header {
+      background-color: #f5f5f5;
+      padding: 20px 20px 10px;
+      margin: -20px -20px 20px;
+      }
+      
+      /* Styles you shouldn't keep as they are for displaying this base example only */
+      .content .span10,
+      .content .span4 {
+      min-height: 500px;
+      }
+      /* Give a quick and non-cross-browser friendly divider */
+      .content .span4 {
+      margin-left: 0;
+      padding-left: 19px;
+      border-left: 1px solid #eee;
+      }
+      
+      .topbar .btn {
+      border: 0;
+      }      
+      .container-fluid {
+        background: #0F8BBF;
+      }
+      .container .content {
+        margin-bottom: 50px;
+      }
+      body {
+        background: url(http://omniverseapps.com/images/threaded.png);        
+      }
+      
+      .chat-bubble {
+        font-size:14px;
+        font-weight: 800;
+        line-height:1.3em;
+        margin:6px auto;
+        padding:6px;
+        position:relative;
+        text-align:left;
+        width:190px;
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0, rgb(90,150,40)), color-stop(0.28, rgb(160,215,60)), color-stop(1, rgb(165,255,69)));
+        background:-moz-linear-gradient(center top, rgb(90,150,40) 0%, rgb(160,215,60) 28%, rgb(165,255,69) 100%);
+        border:1px solid #38691a;
+        -moz-border-radius:10px;
+        -webkit-border-radius:10px;
+        border-radius: 10px;
+        -webkit-box-shadow: rgba(160, 215, 60, 0.6) 2px 2px 3px;
+        -moz-box-shadow: rgba(160, 215, 60, 0.6) 2px 2px 3px; /* FF 3.5+ */
+        box-shadow: rgba(160, 215, 60, 0.6) 2px 2px 3px;
+        
+        margin-left: 0px;
+      }
+      .chat-bubble.self {
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0, rgb(150,150,150)), color-stop(0.28, rgb(215,215,215)), color-stop(1, rgb(220,220,220)));
+        background:-moz-linear-gradient(center top, rgb(150,150,150) 0%, rgb(215,215,215) 28%, rgb(220,220,220) 100%);
+        
+        border:1px solid #696969;
+        
+        -webkit-box-shadow: rgba(215, 215, 215, 160) 2px 2px 3px;
+        -moz-box-shadow: rgba(215, 215, 215, 160) 2px 2px 3px; /* FF 3.5+ */
+        box-shadow: rgba(215, 215, 215, 160) 2px 2px 3px;
+        
+        margin-left: 10px;
+      }
+      .chat-bubble-glare {
+        position: absolute;
+        top: 0px;
+        left: 4px;
+        height: 6px;
+        width: 194px;
+        padding: 6px 0;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0));
+        background: -webkit-gradient(linear, 0% 0%, 0% 95%, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0)));
+      }
+      .chat-bubble-arrow {
+        border-color: transparent #a5ff45 transparent transparent;
+        border-style: solid;
+        border-width: 6px;
+        height:0;
+        width:0;
+        position:absolute;
+        bottom:-1px;
+        left:-3px;
+        -webkit-transform: rotate(70deg);
+        -moz-transform: rotate(70deg);
+        transform: rotate(70deg);
+      }
+      .chat-bubble.self .chat-bubble-arrow {
+        border-color: transparent #e3e3e3 transparent transparent;
+      }
+      .chat-bubble-arrow-border {
+        border-color: transparent #38691a transparent transparent;
+        border-style: solid;
+        border-width: 6px;
+        height:0;
+        width:0;
+        position:absolute;
+        bottom:-1px;
+        left:-3px;
+        -webkit-transform: rotate(70deg);
+        -moz-transform: rotate(70deg);
+      }
+      .chat-bubble.self .chat-bubble-arrow-border {
+        border-color: transparent #696969 transparent transparent;
+      }
+      .chat-bubble.self .chat-bubble-arrow {        
+        bottom:-2px;
+        left:195px;
+        -webkit-transform: rotate(110deg);
+        -moz-transform: rotate(110deg);
+        transform: rotate(110deg);
+      }
+      .chat-bubble.self .chat-bubble-arrow-border {        
+        position:absolute;
+        bottom:-2px;
+        left:195px;
+        -webkit-transform: rotate(110deg);
+        -moz-transform: rotate(110deg);
+      }
+      #chatBar {
+        position: absolute;
+        bottom: 0;
+      }
+      #chatText {
+        width: 220px;
+        height: 400px;
+        overflow-y: scroll;
+      }
+      
+    script( src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js" )
+    script( src="/twipsy.js" )
+    script(src='/socket.io/socket.io.js')
+    
+    script( src="/modal_twitter.js" )
+    script( src="/popover_twitter.js" )
+    script( src="/script.js" )
+    script.
+      var notepad = "#{notepad}";
+      var note = [{
+        content: "#{topic}",
+        contributor: "Matt Neary",
+        approved: true,
+        children: []
+      }];
+    
+  body    
+    div.topbar
+      div.topbar-inner
+        div.container-fluid
+          a(class="brand", href="#") Note Dual
+          ul.nav
+            - items = ["English", "History", "Gym", "Statistics", "Biology", "AP Calculus", "Theology"]
+            each item, i in items
+              li(class="#{item==notepad?'active':''}")
+                a(href="#") #{item}
+          p.pull-right Logged in as 
+            a(href="#") username
+    div.container
+      div.content
+        div.page-header
+          h1 
+            div.row
+              div.span8
+                #{notepad}
+                small notes from 1/15/2012
+              div.span6
+                a.btn.pull-right.danger Exit
+                span.pull-right &nbsp;                    
+                a.btn.pull-right( onclick="return saveNote()" ) Save            
+        div.row
+          div.span10#notePad
+            script( src="/loading_script.js" )
+          div.span4
+            h3
+              span Chat&nbsp;(
+              a#clearChat(href="#") clear
+              span )
+            div#chatBar
+              input(type="text")
+            div#chatText                            
+    script.
+      $("a[rel=twipsy]").twipsy();
+      var _event = '#{notepad}_#{topic} message',
+        _save = '#{notepad}_#{topic} save',
+        _delete = '#{notepad}_#{topic} delete',
+        _json = '#{notepad}_#{topic} transfer data',
+        _req = '#{notepad}_#{topic} data request',
+        _chat = '#{notepad}_#{topic} chat';
+      socket.on(_event, handler);
+      socket.on(_delete, handleDelete);
+      socket.on(_json, handleJSON);
+      socket.on(_chat, getMessage);
