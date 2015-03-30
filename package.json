@@ -1,0 +1,25 @@
+{
+  "name": "NoteDual",
+  "version": "0.1.0",
+  "description": "Live, structured collaborative note taking with chat",
+  "main": "collab.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "dependencies": {
+    "jade": "^1.0.2",
+    "express": "^2.5.8",
+    "nib": "^1.1.0",
+    "mongoose": "^4.0.1",
+    "cli-table": "^0.3.1",
+    "socket.io": "^1.3.5",
+    "stylus": "^0.50.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matt Neary",
+  "license": "ISC"
+}
